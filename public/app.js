@@ -1,15 +1,31 @@
-"use strict";
-// const anchor = document.querySelector('a')!;
-// console.log(anchor.href);
-// const form = document.querySelector('form')!;
-var form = document.querySelector('.new-item-form');
-// console.log(form.children);
+const me = {
+    name: 'shaun',
+    age: 30,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('Ispent', amount);
+        return amount;
+    },
+};
+console.log(me);
+import { Invoice } from './classes/Invoice.js';
+const invOne = new Invoice('Mario', "work on the website", 250);
+const invTwo = new Invoice('Luigi', "work on the website", 300);
+let invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format);
+});
+const form = document.querySelector('.new-item-form');
 // inputs
-var type = document.querySelector('#type');
-var tofrom = document.querySelector('#tofrom');
-var details = document.querySelector('#details');
-var amount = document.querySelector('#amount');
-form.addEventListener('submit', function (e) {
+const type = document.querySelector('#type');
+const tofrom = document.querySelector('#tofrom');
+const details = document.querySelector('#details');
+const amount = document.querySelector('#amount');
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });

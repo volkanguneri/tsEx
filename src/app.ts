@@ -1,12 +1,38 @@
-// const anchor = document.querySelector('a')!;
+interface IsPerson {
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a: number): number;
+}
 
-// console.log(anchor.href);
+const me: IsPerson = {
+    name: 'shaun',
+    age: 30,
+    speak(text: string): void {
+        console.log(text);
+    },
+    spend(amount: number): number {
+        console.log('Ispent', amount);
+        return amount;
+    },
+};
 
+console.log(me)
 
-// const form = document.querySelector('form')!;
+import {Invoice} from './classes/Invoice.js';
+
+const invOne = new Invoice('Mario', "work on the website", 250);
+const invTwo = new Invoice('Luigi', "work on the website", 300);
+
+let invoices: Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format)
+});
+
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
-
-// console.log(form.children);
 
 // inputs
 
